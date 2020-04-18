@@ -15,3 +15,5 @@ const createWeatherHTML = (currentDay) => {
       currentDay.weather[0].icon
     }@2x.png">`;
 };
+
+const kelvinToFahrenheit = (k) => (((k - 273.15) * 9) / 5 + 32).toFixed(0);
