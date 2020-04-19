@@ -69,11 +69,9 @@ const renderVenues = (venues) => {
 }
 
 const renderForecast = (day) => {
-  // Add your code here:
-
-  let weatherContent = '';
+  const weatherContent = createWeatherHTML(day);
   $weatherDiv.append(weatherContent);
-};
+}
 
 const executeSearch = () => {
   $venueDivs.forEach((venue) => venue.empty());
