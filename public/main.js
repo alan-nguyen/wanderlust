@@ -1,7 +1,7 @@
 // Foursquare API Info
-const clientId = '';
-const clientSecret = '';
-const url = '';
+const clientId = 'R3E2MB4C0YSKIVKJJAVT0HRRT1HF10KOFTVSTFANTMWJJST3';
+const clientSecret = 'LID0JTGBCJYEWCD31GBZPHTOOLU3RY15HJUKRPYXADM5G2TV';
+const url = 'https://api.foursquare.com/v2/venues/explore?near=';
 
 // OpenWeather Info
 const openWeatherKey = '';
@@ -23,3 +23,38 @@ const weekDays = [
   'Friday',
   'Saturday',
 ];
+
+// Add AJAX functions here:
+const getVenues = () => {};
+
+const getForecast = () => {};
+
+// Render functions
+const renderVenues = (venues) => {
+  $venueDivs.forEach(($venue, index) => {
+    // Add your code here:
+
+    let venueContent = '';
+    $venue.append(venueContent);
+  });
+  $destination.append(`<h2>${venues[0].location.city}</h2>`);
+};
+
+const renderForecast = (day) => {
+  // Add your code here:
+
+  let weatherContent = '';
+  $weatherDiv.append(weatherContent);
+};
+
+const executeSearch = () => {
+  $venueDivs.forEach((venue) => venue.empty());
+  $weatherDiv.empty();
+  $destination.empty();
+  $container.css('visibility', 'visible');
+  getVenues();
+  getForecast();
+  return false;
+};
+
+$submit.click(executeSearch);
