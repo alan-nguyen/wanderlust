@@ -24,9 +24,21 @@ const weekDays = [
   'Saturday',
 ];
 
-// Add AJAX functions here:
-const getVenues = () => {};
-
+// AJAX functions
+const getVenues = () => {
+  const city = $input.val();
+  const urlToFetch = `${url}${city}&limit=10&cliend_id=${clientId}&client_secret=${clientSecret}&v=20200417`;
+  try {
+    const response = await fetch(urlToFetch);
+    if(reponse.ok){
+      const jsonResponse = await response.json();
+      const venues = jsonResponse.response.group[0].items.map(item => item.venue);
+      return venues;
+    }
+  } catch(error) {
+    console.log(error);
+  }
+}
 const getForecast = () => {};
 
 // Render functions
