@@ -39,7 +39,19 @@ const getVenues = () => {
     console.log(error);
   }
 }
-const getForecast = () => {};
+
+const getForecast = async () => {
+  const urlToFetch = `${weatherUrl}?&q=${$input.val()}&APPID=${openWeatherKey}`;
+  try {
+    const response = await fetch(urlToFetch);
+    if (response.ok){
+      const jsonResponse = await response.json();   
+      return  jsonResponse
+    }
+  } catch(error) {
+    console.log(error)
+  }
+}
 
 // Render functions
 const renderVenues = (venues) => {
